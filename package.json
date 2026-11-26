@@ -1,15 +1,21 @@
 {
   "name": "sanskar-bg-remover",
   "version": "1.0.0",
-  "private": true,
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": "22.x"
   },
   "dependencies": {
     "express": "^4.21.2",
-    "multer": "^1.4.5-lts.1",
+    "multer": "^2.0.0",
     "jszip": "^3.10.1",
-    "@imgly/background-removal-node": "^1.4.5"
+    "@imgly/background-removal-node": "latest"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
   }
 }

@@ -1,19 +1,34 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 const JSZip = require('jszip');
+
+// background-removal-node लाइब्रेरी को इम्पोर्ट करें
 const { removeBackground } = require('@imgly/background-removal-node');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Memory storage का इस्तेमाल करें ताकि हम सीधे buffer पर काम कर सकें
-const upload = multer({ storage: multer.memoryStorage() });
+// मेमोरी स्टोरेज का इस्तेमाल करें ताकि हम सीधे बफर पर काम कर सकें
+const upload = multer({ 
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 10 * 1024 * 1024 } // 10MB लिमिट
+});
 
-app.use(express.static(path.join(__dirname, 'public'))); // या जहाँ आपकी index.html है
-app.use(express.json({ limit: '50mb' })); // ZIP download के लिए limit बढ़ाएं
+// ZIP डाउनलोड के लिए बॉडी पार्सर की लिमिट बढ़ाएं (क्योंकि Base64 इमेजेज बड़ी होती हैं)
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// API 1: Background Remove
+// स्टैटिक फाइल्स सर्व करें (build.js आपकी index.html को dist/public में कॉपी करता है)
+app.use(express.static(path.join(__dirname, 'dist', 'public')));
+
+// रूट URL पर index.html भेजें
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'public', 'index.html'));
+});
+
+// API 1: बैकग्राउंड रिमूव करने के लिए
 app.post('/remove-bg', upload.array('images'), async (req, res) => {
     try {
         if (!req.files || req.files.length === 0) {
@@ -22,12 +37,13 @@ app.post('/remove-bg', upload.array('images'), async (req, res) => {
 
         const results = [];
         
+        // एक-एक करके इमेजेज प्रोसेस करें
         for (const file of req.files) {
             try {
                 // Buffer को Blob में बदलें (क्योंकि @imgly को Blob चाहिए)
                 const imageBlob = new Blob([file.buffer], { type: file.mimetype });
                 
-                // Background Remove
+                // AI मॉडल से बैकग्राउंड रिमूव करवाएं
                 const resultBlob = await removeBackground(imageBlob);
                 
                 // Blob को Base64 में बदलें ताकि Frontend दिखा सके
@@ -54,7 +70,7 @@ app.post('/remove-bg', upload.array('images'), async (req, res) => {
     }
 });
 
-// API 2: Download ZIP
+// API 2: सभी रिजल्ट्स को ZIP में डाउनलोड करने के लिए
 app.post('/download-zip', async (req, res) => {
     try {
         const files = req.body.files;
@@ -65,7 +81,7 @@ app.post('/download-zip', async (req, res) => {
         const zip = new JSZip();
         
         files.forEach(file => {
-            // dataUrl से "data:image/png;base64," हटाकर सिर्फ base64 लें
+            // dataUrl से "data:image/png;base64," हटाकर सिर्फ base64 डेटा लें
             const base64Data = file.dataUrl.replace(/^data:image\/png;base64,/, "");
             zip.file(file.outputName, base64Data, { base64: true });
         });
@@ -82,6 +98,7 @@ app.post('/download-zip', async (req, res) => {
     }
 });
 
+// सर्वर स्टार्ट करें
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Sanskar Tech BG Remover running on port ${port}`);
 });

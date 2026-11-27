@@ -15,7 +15,665 @@
   <link rel="shortcut icon" href="/logo.ico" type="image/x-icon">
   <link rel="canonical" href="https://sanskartechacademy.techsans.in/" />
 
-  <style>:root{--navy-dark: #0b1c34;--navy: #16325b;--navy-light: #234980;--amber: #f59e1b;--amber-hover: #e08906;--amber-soft: #fff7e8;--surface: #ffffff;--bg-page: #eef3fa;--text-main: #0f223d;--text-muted: #556782;--border: #d9e2ef;--success: #0d9488;--danger: #dc2626;--shadow-sm: 0 4px 14px rgba(15, 34, 61, .05);--shadow-md: 0 14px 34px rgba(22, 50, 91, .08)}*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,system-ui,-apple-system,sans-serif}html{scroll-behavior:smooth}body{min-height:100vh;background:radial-gradient(circle at 12% 0%,rgba(245,158,27,.12),transparent 36%),radial-gradient(circle at 90% 10%,rgba(22,50,91,.1),transparent 40%),var(--bg-page);color:var(--text-main);display:flex;flex-direction:column}.navbar{position:sticky;top:0;z-index:1000;background:#122a4ef5;backdrop-filter:blur(10px);color:#fff;padding:12px 24px;border-bottom:3px solid var(--amber);box-shadow:0 8px 24px #0b1c342e}.nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}.brand-logo{width:48px;height:48px;object-fit:contain;background:#fff;border-radius:11px;padding:4px;border:2px solid var(--amber);box-shadow:0 4px 10px #00000026}.brand-title{font-size:18px;font-weight:800;letter-spacing:.4px;line-height:1.15}.brand-sub{font-size:11px;color:#cbd8ec;letter-spacing:2.2px;font-weight:600}.nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.nav-links{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:600}.nav-links a{color:#e7effc;text-decoration:none;padding:6px 2px;border-bottom:2px solid transparent;transition:all .2s ease}.nav-links a:hover{color:var(--amber);border-bottom-color:var(--amber)}.brand-tagline{font-size:12px;color:#ffd07a;font-weight:700;background:#f59e1b24;padding:6px 13px;border-radius:999px;border:1px solid rgba(245,158,27,.42)}.main{flex:1;max-width:1160px;width:100%;margin:28px auto;padding:0 20px;display:flex;flex-direction:column;gap:26px}.card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:30px;box-shadow:var(--shadow-md)}.hero-text{text-align:center;margin-bottom:24px}.hero-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--navy);background:var(--amber-soft);border:1px solid rgba(245,158,27,.45);padding:5px 14px;border-radius:999px;margin-bottom:10px}.hero-text h1{font-size:29px;color:var(--navy);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}.hero-text p{color:var(--text-muted);font-size:14px;max-width:760px;margin:0 auto;line-height:1.6}.dropzone{display:block;border:2px dashed #99b1d4;background:linear-gradient(180deg,#fafcff,#f3f7fd);border-radius:18px;padding:34px 22px;text-align:center;cursor:pointer;transition:all .22s ease}.dropzone:hover,.dropzone.dragover{border-color:var(--amber);background:var(--amber-soft);transform:translateY(-1px);box-shadow:0 10px 24px #f59e1b24}.drop-badge{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:var(--amber);font-size:25px;margin-bottom:12px;box-shadow:0 8px 18px #16325b38}.dropzone p{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:5px}.dropzone span{font-size:13px;color:var(--text-muted);display:block}.mini-steps{display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}.step-chip{font-size:11px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--border);padding:4px 10px;border-radius:999px}#fileInput{display:none}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding:14px 18px;background:#f6f9fe;border:1px solid var(--border);border-radius:15px;flex-wrap:wrap}.queue-summary{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px}.btn-group{display:flex;align-items:center;gap:10px;flex-wrap:wrap}button{border:none;border-radius:11px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;gap:7px}.btn-primary{background:var(--navy);color:#fff;box-shadow:0 5px 14px #16325b33}.btn-primary:hover:not(:disabled){background:var(--navy-light);transform:translateY(-1px)}.btn-amber{background:var(--amber);color:var(--navy-dark);box-shadow:0 5px 14px #f59e1b40}.btn-amber:hover:not(:disabled){background:var(--amber-hover);transform:translateY(-1px)}.btn-success{background:var(--success);color:#fff;box-shadow:0 5px 14px #0d948838}.btn-success:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}.btn-outline{background:#fff;color:var(--navy);border:1px solid var(--border)}.btn-outline:hover:not(:disabled){background:#edf2fa}.btn-danger-sm{background:#fee2e2;color:var(--danger);padding:6px 10px;font-size:12px;border-radius:8px}.btn-danger-sm:hover:not(:disabled){background:#fecaca}.btn-dl-sm{background:var(--amber);color:var(--navy-dark);padding:7px 12px;font-size:12px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:5px}.btn-dl-sm:hover{background:var(--amber-hover)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.status{margin-top:14px;text-align:center;font-size:14px;font-weight:600;min-height:22px;color:var(--navy)}.status.error{color:var(--danger)}.status.success{color:var(--success)}.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:18px;margin-top:20px}.item-card{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease}.item-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px #0f223d17}.item-head{background:var(--navy);color:#fff;padding:10px 12px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}.item-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}.badge-status{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:700;flex-shrink:0}.st-queued{background:#ffffff29;color:#e2e8f0}.st-processing{background:#fef3c7;color:#92400e}.st-done{background:#ccfbf1;color:#0f766e}.st-error{background:#fee2e2;color:#b91c1c}.item-preview{height:215px;display:flex;align-items:center;justify-content:center;padding:12px;position:relative}.checkerboard{background-color:#f8fafc;background-image:linear-gradient(45deg,#e2e8f0 25%,transparent 25%),linear-gradient(-45deg,#e2e8f0 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e2e8f0 75%),linear-gradient(-45deg,transparent 75%,#e2e8f0 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}.item-preview img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}.item-foot{padding:10px 12px;border-top:1px solid var(--border);background:#fafcff;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.mini-swatches{display:flex;gap:6px;align-items:center}.mini-swatch{width:16px;height:16px;border-radius:50%;border:2px solid #cbd5e1;cursor:pointer;padding:0;transition:transform .15s ease}.mini-swatch:hover{transform:scale(1.15)}.seo-section h2{font-size:23px;color:var(--navy);font-weight:800;margin-bottom:10px}.seo-section h3{font-size:17px;color:var(--navy);font-weight:700;margin-top:22px;margin-bottom:8px}.seo-section p{color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:10px}.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:14px}.info-box{background:linear-gradient(180deg,#fff,#f7faff);border:1px solid var(--border);border-top:3px solid var(--amber);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);transition:transform .2s ease}.info-box:hover{transform:translateY(-2px)}.info-box h4{color:var(--navy);font-size:15px;font-weight:800;margin-bottom:6px}.info-box p{font-size:13px;margin-bottom:0}.course-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.pill{background:var(--amber-soft);color:var(--navy-dark);border:1px solid rgba(245,158,27,.45);font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;transition:all .18s ease}.pill:hover{background:var(--navy);color:#fff;border-color:var(--navy)}footer{background:var(--navy-dark);color:#dce6f5;padding:36px 20px 20px;border-top:4px solid var(--amber);margin-top:12px}.footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.12)}.footer-col h4{color:var(--amber);font-size:15px;font-weight:700;margin-bottom:10px}.footer-col p,.footer-col a{color:#dce6f5;font-size:13px;line-height:1.75;text-decoration:none;display:block}.footer-col a:hover{color:var(--amber)}.footer-bottom{max-width:1160px;margin:16px auto 0;text-align:center;font-size:12px;color:#9fb2cf}@media (max-width: 640px){.card{padding:20px}.hero-text h1{font-size:23px}}</style>
+  <style>
+    :root {
+      --navy-dark: #0b1c34;
+      --navy: #16325b;
+      --navy-light: #234980;
+      --amber: #f59e1b;
+      --amber-hover: #e08906;
+      --amber-soft: #fff7e8;
+      --surface: #ffffff;
+      --bg-page: #eef3fa;
+      --text-main: #0f223d;
+      --text-muted: #556782;
+      --border: #d9e2ef;
+      --success: #0d9488;
+      --danger: #dc2626;
+      --shadow-sm: 0 4px 14px rgba(15, 34, 61, 0.05);
+      --shadow-md: 0 14px 34px rgba(22, 50, 91, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(245, 158, 27, 0.12), transparent 36%),
+        radial-gradient(circle at 90% 10%, rgba(22, 50, 91, 0.10), transparent 40%),
+        var(--bg-page);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Sticky Header */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(18, 42, 78, 0.96);
+      backdrop-filter: blur(10px);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-bottom: 3px solid var(--amber);
+      box-shadow: 0 8px 24px rgba(11, 28, 52, 0.18);
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 11px;
+      padding: 4px;
+      border: 2px solid var(--amber);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: #cbd8ec;
+      letter-spacing: 2.2px;
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #e7effc;
+      text-decoration: none;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--amber);
+      border-bottom-color: var(--amber);
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: #ffd07a;
+      font-weight: 700;
+      background: rgba(245, 158, 27, 0.14);
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 27, 0.42);
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      max-width: 1160px;
+      width: 100%;
+      margin: 28px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Banner */
+    .hero-text {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--amber-soft);
+      border: 1px solid rgba(245, 158, 27, 0.45);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 {
+      font-size: 29px;
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Dropzone */
+    .dropzone {
+      display: block;
+      border: 2px dashed #99b1d4;
+      background: linear-gradient(180deg, #fafcff 0%, #f3f7fd 100%);
+      border-radius: 18px;
+      padding: 34px 22px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .dropzone:hover,
+    .dropzone.dragover {
+      border-color: var(--amber);
+      background: var(--amber-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(245, 158, 27, 0.14);
+    }
+
+    .drop-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--amber);
+      font-size: 25px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 18px rgba(22, 50, 91, 0.22);
+    }
+
+    .dropzone p {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .dropzone span {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .mini-steps {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .step-chip {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: #f6f9fe;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      flex-wrap: wrap;
+    }
+
+    .queue-summary {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 11px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 5px 14px rgba(22, 50, 91, 0.2);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-amber {
+      background: var(--amber);
+      color: var(--navy-dark);
+      box-shadow: 0 5px 14px rgba(245, 158, 27, 0.25);
+    }
+
+    .btn-amber:hover:not(:disabled) {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: #ffffff;
+      box-shadow: 0 5px 14px rgba(13, 148, 136, 0.22);
+    }
+
+    .btn-success:hover:not(:disabled) {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: #edf2fa;
+    }
+
+    .btn-danger-sm {
+      background: #fee2e2;
+      color: var(--danger);
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: 8px;
+    }
+
+    .btn-danger-sm:hover:not(:disabled) {
+      background: #fecaca;
+    }
+
+    .btn-dl-sm {
+      background: var(--amber);
+      color: var(--navy-dark);
+      padding: 7px 12px;
+      font-size: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-dl-sm:hover {
+      background: var(--amber-hover);
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      min-height: 22px;
+      color: var(--navy);
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    .status.success {
+      color: var(--success);
+    }
+
+    /* Batch Grid */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .item-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(15, 34, 61, 0.09);
+    }
+
+    .item-head {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 10px 12px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .item-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 600;
+    }
+
+    .badge-status {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .st-queued {
+      background: rgba(255, 255, 255, 0.16);
+      color: #e2e8f0;
+    }
+    .st-processing {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .st-done {
+      background: #ccfbf1;
+      color: #0f766e;
+    }
+    .st-error {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .item-preview {
+      height: 215px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      position: relative;
+    }
+
+    .checkerboard {
+      background-color: #f8fafc;
+      background-image:
+        linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
+        linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
+        linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+      background-size: 18px 18px;
+      background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+    }
+
+    .item-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .item-foot {
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      background: #fafcff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mini-swatches {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .mini-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #cbd5e1;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.15s ease;
+    }
+
+    .mini-swatch:hover {
+      transform: scale(1.15);
+    }
+
+    /* SEO Section */
+    .seo-section h2 {
+      font-size: 23px;
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .seo-section h3 {
+      font-size: 17px;
+      color: var(--navy);
+      font-weight: 700;
+      margin-top: 22px;
+      margin-bottom: 8px;
+    }
+
+    .seo-section p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .info-box {
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--amber);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .info-box h4 {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .info-box p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .course-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      background: var(--amber-soft);
+      color: var(--navy-dark);
+      border: 1px solid rgba(245, 158, 27, 0.45);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 13px;
+      border-radius: 999px;
+      transition: all 0.18s ease;
+    }
+
+    .pill:hover {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-dark);
+      color: #dce6f5;
+      padding: 36px 20px 20px;
+      border-top: 4px solid var(--amber);
+      margin-top: 12px;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 26px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-col h4 {
+      color: var(--amber);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: #dce6f5;
+      font-size: 13px;
+      line-height: 1.75;
+      text-decoration: none;
+      display: block;
+    }
+
+    .footer-col a:hover {
+      color: var(--amber);
+    }
+
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 16px auto 0;
+      text-align: center;
+      font-size: 12px;
+      color: #9fb2cf;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 20px;
+      }
+      .hero-text h1 {
+        font-size: 23px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Sticky Header -->
@@ -174,13 +832,63 @@
     </div>
   </footer>
 
-  <script>const MAX_FILES=10,MAX_SIZE=10485760,fileInput=document.getElementById("fileInput"),dropzone=document.getElementById("dropzone"),queueSummary=document.getElementById("queueSummary"),processBtn=document.getElementById("processBtn"),downloadAllPngBtn=document.getElementById("downloadAllPngBtn"),downloadZipBtn=document.getElementById("downloadZipBtn"),clearBtn=document.getElementById("clearBtn"),statusText=document.getElementById("statusText"),itemsGrid=document.getElementById("itemsGrid");let queue=[],isProcessing=!1;function setStatus(e,t=""){statusText.textContent=e,statusText.className="status "+t}function updateControls(){const e=queue.filter(t=>t.status==="done"&&t.resultDataUrl);queueSummary.textContent=`Selected: ${queue.length} / 10 images \u2022 Done: ${e.length}`,processBtn.disabled=isProcessing||queue.length===0,clearBtn.disabled=isProcessing||queue.length===0,downloadAllPngBtn.disabled=isProcessing||e.length===0,downloadZipBtn.disabled=isProcessing||e.length===0}function renderGrid(){itemsGrid.innerHTML="",queue.forEach(e=>{const t=document.createElement("div");t.className="item-card",t.dataset.id=e.id;const n={queued:{text:"Queued",cls:"st-queued"},processing:{text:"Processing...",cls:"st-processing"},done:{text:"Done",cls:"st-done"},error:{text:"Failed",cls:"st-error"}},a=n[e.status]||n.queued,o=e.resultDataUrl||e.origUrl,r=e.resultDataUrl?"item-preview checkerboard":"item-preview";t.innerHTML=`
+  <script>
+    const MAX_FILES = 10;
+    const MAX_SIZE = 10 * 1024 * 1024;
+
+    const fileInput = document.getElementById("fileInput");
+    const dropzone = document.getElementById("dropzone");
+    const queueSummary = document.getElementById("queueSummary");
+    const processBtn = document.getElementById("processBtn");
+    const downloadAllPngBtn = document.getElementById("downloadAllPngBtn");
+    const downloadZipBtn = document.getElementById("downloadZipBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const statusText = document.getElementById("statusText");
+    const itemsGrid = document.getElementById("itemsGrid");
+
+    let queue = [];
+    let isProcessing = false;
+
+    function setStatus(msg, type = "") {
+      statusText.textContent = msg;
+      statusText.className = "status " + type;
+    }
+
+    function updateControls() {
+      const doneItems = queue.filter((i) => i.status === "done" && i.resultDataUrl);
+      queueSummary.textContent = `Selected: ${queue.length} / ${MAX_FILES} images • Done: ${doneItems.length}`;
+      processBtn.disabled = isProcessing || queue.length === 0;
+      clearBtn.disabled = isProcessing || queue.length === 0;
+      downloadAllPngBtn.disabled = isProcessing || doneItems.length === 0;
+      downloadZipBtn.disabled = isProcessing || doneItems.length === 0;
+    }
+
+    function renderGrid() {
+      itemsGrid.innerHTML = "";
+
+      queue.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+        card.dataset.id = item.id;
+
+        const statusMap = {
+          queued: { text: "Queued", cls: "st-queued" },
+          processing: { text: "Processing...", cls: "st-processing" },
+          done: { text: "Done", cls: "st-done" },
+          error: { text: "Failed", cls: "st-error" },
+        };
+        const st = statusMap[item.status] || statusMap.queued;
+
+        const imgSrc = item.resultDataUrl || item.origUrl;
+        const previewClass = item.resultDataUrl ? "item-preview checkerboard" : "item-preview";
+
+        card.innerHTML = `
           <div class="item-head">
-            <span class="item-name" title="${e.file.name}">${e.file.name}</span>
-            <span class="badge-status ${a.cls}">${a.text}</span>
+            <span class="item-name" title="${item.file.name}">${item.file.name}</span>
+            <span class="badge-status ${st.cls}">${st.text}</span>
           </div>
-          <div class="${r}">
-            <img src="${o}" alt="${e.file.name}" />
+          <div class="${previewClass}">
+            <img src="${imgSrc}" alt="${item.file.name}" />
           </div>
           <div class="item-foot">
             <div class="mini-swatches" title="Preview background">
@@ -190,10 +898,227 @@
               <button type="button" class="mini-swatch" style="background:#f59e1b" data-bg="#f59e1b"></button>
             </div>
             <div style="display:flex; gap:6px; align-items:center;">
-              ${e.resultDataUrl?`<a class="btn-dl-sm" href="${e.resultDataUrl}" download="${e.outputName}">\u2B07\uFE0F PNG</a>`:`<span style="font-size:11px; color:var(--text-muted);">${(e.file.size/1024).toFixed(0)} KB</span>`}
-              <button type="button" class="btn-danger-sm remove-item" ${isProcessing?"disabled":""}>\u2715</button>
+              ${
+                item.resultDataUrl
+                  ? `<a class="btn-dl-sm" href="${item.resultDataUrl}" download="${item.outputName}">⬇️ PNG</a>`
+                  : `<span style="font-size:11px; color:var(--text-muted);">${(item.file.size / 1024).toFixed(0)} KB</span>`
+              }
+              <button type="button" class="btn-danger-sm remove-item" ${isProcessing ? "disabled" : ""}>✕</button>
             </div>
           </div>
-        `;const s=t.querySelector(".item-preview");t.querySelectorAll(".mini-swatch").forEach(l=>{l.addEventListener("click",()=>{l.dataset.bg==="checker"?(s.classList.add("checkerboard"),s.style.backgroundColor=""):(s.classList.remove("checkerboard"),s.style.backgroundColor=l.dataset.bg)})}),t.querySelector(".remove-item").addEventListener("click",()=>{isProcessing||(URL.revokeObjectURL(e.origUrl),queue=queue.filter(l=>l.id!==e.id),renderGrid(),updateControls())}),itemsGrid.appendChild(t)})}function addFiles(e){if(isProcessing)return;const t=Array.from(e||[]);if(t.length===0)return;let n=0;for(const a of t){if(queue.length>=10){setStatus("Ek saath maximum 10 images hi add ki ja sakti hain.","error");break}if(a.size>10485760){setStatus(`"${a.name}" 10 MB se badi hai, skip kar di gayi.`,"error");continue}queue.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),file:a,origUrl:URL.createObjectURL(a),status:"queued",resultDataUrl:null,outputName:null,error:null}),n++}n>0&&!statusText.classList.contains("error")&&setStatus(""),renderGrid(),updateControls()}fileInput.addEventListener("change",e=>{addFiles(e.target.files),fileInput.value=""}),["dragenter","dragover"].forEach(e=>{dropzone.addEventListener(e,t=>{t.preventDefault(),dropzone.classList.add("dragover")})}),["dragleave","drop"].forEach(e=>{dropzone.addEventListener(e,t=>{t.preventDefault(),dropzone.classList.remove("dragover")})}),dropzone.addEventListener("drop",e=>{addFiles(e.dataTransfer.files)}),processBtn.addEventListener("click",async()=>{if(!(queue.length===0||isProcessing)){isProcessing=!0,queue.forEach(e=>{e.status="processing"}),renderGrid(),updateControls(),setStatus(`\u23F3 ${queue.length} images ka background remove ho raha hai...`);try{const e=new FormData;queue.forEach(r=>e.append("images",r.file));const t=await fetch("/remove-bg",{method:"POST",body:e}),n=await t.text();let a={};try{a=JSON.parse(n)}catch{throw new Error(`Server error (${t.status}): Response JSON nahi tha. Terminal logs check karein.`)}if(!t.ok)throw new Error(a.error||`Server error (${t.status})`);(a.results||[]).forEach((r,s)=>{queue[s]&&(r.success?(queue[s].status="done",queue[s].resultDataUrl=r.dataUrl,queue[s].outputName=r.outputName):(queue[s].status="error",queue[s].error=r.error))});const o=queue.filter(r=>r.status==="done").length;if(o>0)setStatus(`\u2705 ${o} / ${queue.length} images ka background remove ho gaya!`,"success");else{const r=(a.results||[]).find(s=>s.error)?.error||"Background remove nahi ho paya.";setStatus(`\u274C ${r}`,"error")}}catch(e){queue.forEach(t=>{t.status==="processing"&&(t.status="error")}),setStatus("\u274C "+(e.message||"Error aaya."),"error")}finally{isProcessing=!1,renderGrid(),updateControls()}}}),downloadAllPngBtn.addEventListener("click",()=>{queue.filter(t=>t.status==="done"&&t.resultDataUrl).forEach((t,n)=>{setTimeout(()=>{const a=document.createElement("a");a.href=t.resultDataUrl,a.download=t.outputName,document.body.appendChild(a),a.click(),a.remove()},n*250)})}),downloadZipBtn.addEventListener("click",async()=>{const e=queue.filter(t=>t.status==="done"&&t.resultDataUrl);if(e.length!==0){downloadZipBtn.disabled=!0,setStatus("\u{1F4E6} ZIP file ban rahi hai...");try{const t=await fetch("/download-zip",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({files:e.map(r=>({outputName:r.outputName,dataUrl:r.resultDataUrl}))})});if(!t.ok)throw new Error("ZIP download nahi ho paya.");const n=await t.blob(),a=URL.createObjectURL(n),o=document.createElement("a");o.href=a,o.download="sanskar-tech-bg-removed.zip",document.body.appendChild(o),o.click(),o.remove(),URL.revokeObjectURL(a),setStatus("\u2705 ZIP file download ho gayi!","success")}catch(t){setStatus("\u274C "+(t.message||"ZIP error."),"error")}finally{updateControls()}}}),clearBtn.addEventListener("click",()=>{isProcessing||(queue.forEach(e=>URL.revokeObjectURL(e.origUrl)),queue=[],renderGrid(),updateControls(),setStatus(""))}),updateControls();</script>
+        `;
+
+        const previewEl = card.querySelector(".item-preview");
+        card.querySelectorAll(".mini-swatch").forEach((sw) => {
+          sw.addEventListener("click", () => {
+            if (sw.dataset.bg === "checker") {
+              previewEl.classList.add("checkerboard");
+              previewEl.style.backgroundColor = "";
+            } else {
+              previewEl.classList.remove("checkerboard");
+              previewEl.style.backgroundColor = sw.dataset.bg;
+            }
+          });
+        });
+
+        card.querySelector(".remove-item").addEventListener("click", () => {
+          if (isProcessing) return;
+          URL.revokeObjectURL(item.origUrl);
+          queue = queue.filter((x) => x.id !== item.id);
+          renderGrid();
+          updateControls();
+        });
+
+        itemsGrid.appendChild(card);
+      });
+    }
+
+    function addFiles(fileList) {
+      if (isProcessing) return;
+      const incoming = Array.from(fileList || []);
+      if (incoming.length === 0) return;
+
+      let added = 0;
+      for (const file of incoming) {
+        if (queue.length >= MAX_FILES) {
+          setStatus(`Ek saath maximum ${MAX_FILES} images hi add ki ja sakti hain.`, "error");
+          break;
+        }
+        if (file.size > MAX_SIZE) {
+          setStatus(`"${file.name}" 10 MB se badi hai, skip kar di gayi.`, "error");
+          continue;
+        }
+        queue.push({
+          id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
+          file,
+          origUrl: URL.createObjectURL(file),
+          status: "queued",
+          resultDataUrl: null,
+          outputName: null,
+          error: null,
+        });
+        added++;
+      }
+
+      if (added > 0 && !statusText.classList.contains("error")) {
+        setStatus("");
+      }
+
+      renderGrid();
+      updateControls();
+    }
+
+    fileInput.addEventListener("change", (e) => {
+      addFiles(e.target.files);
+      fileInput.value = "";
+    });
+
+    ["dragenter", "dragover"].forEach((evt) => {
+      dropzone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        dropzone.classList.add("dragover");
+      });
+    });
+
+    ["dragleave", "drop"].forEach((evt) => {
+      dropzone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("dragover");
+      });
+    });
+
+    dropzone.addEventListener("drop", (e) => {
+      addFiles(e.dataTransfer.files);
+    });
+
+    processBtn.addEventListener("click", async () => {
+      if (queue.length === 0 || isProcessing) return;
+
+      isProcessing = true;
+      queue.forEach((item) => {
+        item.status = "processing";
+      });
+      renderGrid();
+      updateControls();
+      setStatus(`⏳ ${queue.length} images ka background remove ho raha hai...`);
+
+      try {
+        const formData = new FormData();
+        queue.forEach((item) => formData.append("images", item.file));
+
+        const res = await fetch("/remove-bg", {
+          method: "POST",
+          body: formData,
+        });
+
+        const rawText = await res.text();
+        let data = {};
+        try {
+          data = JSON.parse(rawText);
+        } catch {
+          throw new Error(`Server error (${res.status}): Response JSON nahi tha. Terminal logs check karein.`);
+        }
+
+        if (!res.ok) {
+          throw new Error(data.error || `Server error (${res.status})`);
+        }
+
+        (data.results || []).forEach((r, idx) => {
+          if (!queue[idx]) return;
+          if (r.success) {
+            queue[idx].status = "done";
+            queue[idx].resultDataUrl = r.dataUrl;
+            queue[idx].outputName = r.outputName;
+          } else {
+            queue[idx].status = "error";
+            queue[idx].error = r.error;
+          }
+        });
+
+        const successCount = queue.filter((x) => x.status === "done").length;
+        if (successCount > 0) {
+          setStatus(`✅ ${successCount} / ${queue.length} images ka background remove ho gaya!`, "success");
+        } else {
+          const firstErr = (data.results || []).find((r) => r.error)?.error || "Background remove nahi ho paya.";
+          setStatus(`❌ ${firstErr}`, "error");
+        }
+      } catch (err) {
+        queue.forEach((item) => {
+          if (item.status === "processing") item.status = "error";
+        });
+        setStatus("❌ " + (err.message || "Error aaya."), "error");
+      } finally {
+        isProcessing = false;
+        renderGrid();
+        updateControls();
+      }
+    });
+
+    downloadAllPngBtn.addEventListener("click", () => {
+      const doneItems = queue.filter((i) => i.status === "done" && i.resultDataUrl);
+      doneItems.forEach((item, idx) => {
+        setTimeout(() => {
+          const a = document.createElement("a");
+          a.href = item.resultDataUrl;
+          a.download = item.outputName;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        }, idx * 250);
+      });
+    });
+
+    downloadZipBtn.addEventListener("click", async () => {
+      const doneItems = queue.filter((i) => i.status === "done" && i.resultDataUrl);
+      if (doneItems.length === 0) return;
+
+      downloadZipBtn.disabled = true;
+      setStatus("📦 ZIP file ban rahi hai...");
+
+      try {
+        const res = await fetch("/download-zip", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            files: doneItems.map((i) => ({
+              outputName: i.outputName,
+              dataUrl: i.resultDataUrl,
+            })),
+          }),
+        });
+
+        if (!res.ok) {
+          throw new Error("ZIP download nahi ho paya.");
+        }
+
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "sanskar-tech-bg-removed.zip";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+
+        setStatus("✅ ZIP file download ho gayi!", "success");
+      } catch (err) {
+        setStatus("❌ " + (err.message || "ZIP error."), "error");
+      } finally {
+        updateControls();
+      }
+    });
+
+    clearBtn.addEventListener("click", () => {
+      if (isProcessing) return;
+      queue.forEach((item) => URL.revokeObjectURL(item.origUrl));
+      queue = [];
+      renderGrid();
+      updateControls();
+      setStatus("");
+    });
+
+    updateControls();
+  </script>
 </body>
 </html>

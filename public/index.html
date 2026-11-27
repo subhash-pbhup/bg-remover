@@ -12,8 +12,22 @@
     name="keywords"
     content="Bulk Background Remover, Multiple Image Background Remover, Sanskar Tech Academy, Lalganj Ajhara, Pratapgarh, CCC, O Level, ADCA, DCA, Web Development"
   />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sanskar Tech Academy" />
+  <meta property="og:title" content="Bulk AI Background Remover — Sanskar Tech Academy | Lalganj Ajhara" />
+  <meta property="og:description" content="Upload multiple images at once and download transparent PNGs or a ZIP file. Computer & Web Development training in Lalganj Ajhara, Pratapgarh." />
+  <meta property="og:image" content="https://bg-removed.sanskartechacademy.in/logo.webp" />
+  <meta property="og:url" content="https://bg-removed.sanskartechacademy.in/" />
+
+  <!-- LOCAL SEO -->
+  <meta name="geo.region" content="IN-UP" />
+  <meta name="geo.placename" content="Lalganj Ajhara, Pratapgarh, Uttar Pradesh" />
+  <meta name="geo.position" content="25.8561;81.9720" />
+  <meta name="ICBM" content="25.8561, 81.9720" />
   <link rel="shortcut icon" href="/logo.ico" type="image/x-icon">
-  <link rel="canonical" href="https://sanskartechacademy.techsans.in/" />
+  <link rel="canonical" href="https://bg-removed.sanskartechacademy.in/" />
 
   <style>
     :root {
@@ -396,6 +410,76 @@
       transform: none;
     }
 
+    /* Progress Bar */
+    .progress-wrap {
+      display: none;
+      margin-top: 14px;
+      background: #f6f9fe;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+
+    .progress-wrap.active {
+      display: block;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      gap: 10px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 11px;
+      background: #dbe4f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--amber) 100%);
+      transition: width 0.2s ease;
+    }
+
+    .item-progress-box {
+      width: 100%;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .item-progress-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .item-progress-track {
+      width: 100%;
+      height: 7px;
+      background: rgba(22, 50, 91, 0.14);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .item-progress-fill {
+      height: 100%;
+      width: 15%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--amber) 100%);
+      transition: width 0.2s ease;
+    }
+
     .status {
       margin-top: 14px;
       text-align: center;
@@ -481,11 +565,14 @@
     }
 
     .item-preview {
-      height: 215px;
+      height: 225px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 12px;
+      padding: 10px 12px;
+      gap: 8px;
+      overflow: hidden;
       position: relative;
     }
 
@@ -502,9 +589,13 @@
 
     .item-preview img {
       max-width: 100%;
-      max-height: 100%;
+      max-height: 150px;
+      width: auto;
+      height: auto;
       object-fit: contain;
       border-radius: 8px;
+      flex-shrink: 1;
+      min-height: 0;
     }
 
     .item-foot {
@@ -704,7 +795,7 @@
     <!-- Multi-Upload Background Remover -->
     <section class="card" id="tool" aria-label="Bulk Background Remover Tool">
       <div class="hero-text">
-        <div class="hero-pill">⚡ Browser AI • Transparent PNG &amp; ZIP Export</div>
+        <div class="hero-pill">⚡ Fast Browser AI • Transparent PNG &amp; ZIP Export</div>
         <h1>Bulk AI Image Background Remover</h1>
         <p>
           <strong>Sanskar Tech Academy</strong> के इस टूल से एक साथ कई photos upload karein, background remove karein,
@@ -739,6 +830,16 @@
           <button type="button" class="btn-outline" id="clearBtn" disabled>
             Clear All
           </button>
+        </div>
+      </div>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-meta">
+          <span id="progressLabel">Taiyari ho rahi hai...</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
       </div>
 
@@ -837,6 +938,7 @@
 
     const MAX_FILES = 10;
     const MAX_SIZE = 10 * 1024 * 1024;
+    const MAX_DIMENSION = 1280;
 
     const fileInput = document.getElementById("fileInput");
     const dropzone = document.getElementById("dropzone");
@@ -848,12 +950,45 @@
     const statusText = document.getElementById("statusText");
     const itemsGrid = document.getElementById("itemsGrid");
 
+    const progressWrap = document.getElementById("progressWrap");
+    const progressLabel = document.getElementById("progressLabel");
+    const progressPercent = document.getElementById("progressPercent");
+    const progressFill = document.getElementById("progressFill");
+
     let queue = [];
     let isProcessing = false;
+    let lastProgressUiTime = 0;
 
     function setStatus(msg, type = "") {
       statusText.textContent = msg;
       statusText.className = "status " + type;
+    }
+
+    function setOverallProgress(pct, labelText) {
+      const safePct = Math.max(0, Math.min(100, Math.round(pct)));
+      progressWrap.classList.add("active");
+      progressFill.style.width = `${safePct}%`;
+      progressPercent.textContent = `${safePct}%`;
+      if (labelText) {
+        progressLabel.textContent = labelText;
+      }
+    }
+
+    function hideOverallProgress() {
+      progressWrap.classList.remove("active");
+      progressFill.style.width = "0%";
+      progressPercent.textContent = "0%";
+      progressLabel.textContent = "";
+    }
+
+    function updateItemCardProgress(item) {
+      const card = itemsGrid.querySelector(`.item-card[data-id="${item.id}"]`);
+      if (!card) return;
+      const fill = card.querySelector(".item-progress-fill");
+      const label = card.querySelector(".item-progress-label");
+      const pct = Math.max(5, Math.min(100, Math.round(item.itemProgress || 15)));
+      if (fill) fill.style.width = `${pct}%`;
+      if (label) label.textContent = item.progressText || `Processing... ${pct}%`;
     }
 
     function updateControls() {
@@ -871,6 +1006,62 @@
         reader.onload = () => resolve(reader.result);
         reader.onerror = () => reject(new Error("Result image read nahi ho payi."));
         reader.readAsDataURL(blob);
+      });
+    }
+
+    async function prepareImageForAI(file) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        const objectUrl = URL.createObjectURL(file);
+
+        img.onload = () => {
+          URL.revokeObjectURL(objectUrl);
+          const { naturalWidth: w, naturalHeight: h } = img;
+          if (!w || !h) {
+            resolve(file);
+            return;
+          }
+
+          if (w <= MAX_DIMENSION && h <= MAX_DIMENSION) {
+            resolve(file);
+            return;
+          }
+
+          const scale = Math.min(MAX_DIMENSION / w, MAX_DIMENSION / h);
+          const targetW = Math.max(1, Math.round(w * scale));
+          const targetH = Math.max(1, Math.round(h * scale));
+
+          const canvas = document.createElement("canvas");
+          canvas.width = targetW;
+          canvas.height = targetH;
+
+          const ctx = canvas.getContext("2d");
+          if (!ctx) {
+            resolve(file);
+            return;
+          }
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = "high";
+          ctx.drawImage(img, 0, 0, targetW, targetH);
+
+          canvas.toBlob(
+            (resizedBlob) => {
+              canvas.width = 0;
+              canvas.height = 0;
+              resolve(resizedBlob || file);
+            },
+            "image/png",
+            0.92
+          );
+        };
+
+        img.onerror = () => {
+          URL.revokeObjectURL(objectUrl);
+          reject(new Error("Image load nahi ho saki."));
+        };
+
+        img.src = objectUrl;
       });
     }
 
@@ -892,6 +1083,8 @@
 
         const imgSrc = item.resultDataUrl || item.origUrl;
         const previewClass = item.resultDataUrl ? "item-preview checkerboard" : "item-preview";
+        const itemPct = Math.max(5, Math.min(100, Math.round(item.itemProgress || 15)));
+        const itemLabel = item.progressText || `Processing... ${itemPct}%`;
 
         card.innerHTML = `
           <div class="item-head">
@@ -900,6 +1093,18 @@
           </div>
           <div class="${previewClass}">
             <img src="${imgSrc}" alt="${item.file.name}" />
+            ${
+              item.status === "processing"
+                ? `
+                  <div class="item-progress-box">
+                    <div class="item-progress-label">${itemLabel}</div>
+                    <div class="item-progress-track">
+                      <div class="item-progress-fill" style="width:${itemPct}%"></div>
+                    </div>
+                  </div>
+                `
+                : ""
+            }
           </div>
           <div class="item-foot">
             <div class="mini-swatches" title="Preview background">
@@ -968,6 +1173,8 @@
           file,
           origUrl: URL.createObjectURL(file),
           status: "queued",
+          itemProgress: 0,
+          progressText: "Queued",
           resultDataUrl: null,
           outputName: null,
           error: null,
@@ -1011,35 +1218,93 @@
 
       isProcessing = true;
       updateControls();
-      setStatus(`⏳ Browser mein ${queue.length} images ka background remove ho raha hai (pehli baar model load hone mein thoda waqt lag sakta hai)...`);
+      setOverallProgress(0, `0 / ${queue.length} images processed`);
+      setStatus(`⏳ Browser mein ${queue.length} images ka background remove ho raha hai...`);
 
       let successCount = 0;
       let firstError = null;
+      const total = queue.length;
 
-      for (let i = 0; i < queue.length; i++) {
+      for (let i = 0; i < total; i++) {
         const item = queue[i];
         item.status = "processing";
+        item.itemProgress = 10;
+        item.progressText = `Preparing (${i + 1}/${total})...`;
         item.error = null;
+
         renderGrid();
-        setStatus(`⏳ Processing ${i + 1} / ${queue.length}: ${item.file.name}...`);
+        setOverallProgress((i / total) * 100, `Processing ${i + 1} of ${total}: ${item.file.name}`);
+        setStatus(`⏳ Processing ${i + 1} / ${total}: ${item.file.name}...`);
+
+        let maxRatio = 0.08;
+        const fallbackTimer = setInterval(() => {
+          if (item.status !== "processing") return;
+          if (maxRatio < 0.85) {
+            maxRatio = Math.min(0.85, maxRatio + 0.03);
+            const pct = Math.round(maxRatio * 100);
+            item.itemProgress = pct;
+            item.progressText = `AI Processing: ${pct}%`;
+            updateItemCardProgress(item);
+            setOverallProgress(((i + maxRatio) / total) * 100, `Image ${i + 1}/${total} (${item.file.name}) • ${pct}%`);
+          }
+        }, 400);
 
         try {
-          const outputBlob = await removeBackground(item.file, {
+          const inputForAI = await prepareImageForAI(item.file);
+          maxRatio = Math.max(maxRatio, 0.18);
+          item.itemProgress = Math.round(maxRatio * 100);
+          item.progressText = "Running AI model...";
+          updateItemCardProgress(item);
+
+          const outputBlob = await removeBackground(inputForAI, {
             model: "isnet_quint8",
             output: {
               format: "image/png",
-              quality: 0.9,
+              quality: 0.85,
+            },
+            progress: (key, current, totalBytes) => {
+              const now = performance.now();
+              if (now - lastProgressUiTime < 120) return;
+              lastProgressUiTime = now;
+
+              let incomingRatio = maxRatio;
+              if (totalBytes && totalBytes > 0) {
+                const raw = Math.max(0.05, Math.min(1, current / totalBytes));
+                incomingRatio = String(key || "").includes("fetch")
+                  ? 0.18 + raw * 0.57
+                  : Math.max(maxRatio, Math.min(0.95, 0.25 + raw * 0.7));
+              }
+
+              if (incomingRatio > maxRatio) {
+                maxRatio = incomingRatio;
+              }
+
+              const pct = Math.round(maxRatio * 100);
+              item.itemProgress = pct;
+              item.progressText = `${String(key || "").includes("fetch") ? "Downloading Model" : "Removing BG"}: ${pct}%`;
+              updateItemCardProgress(item);
+
+              const combinedPct = ((i + maxRatio) / total) * 100;
+              setOverallProgress(combinedPct, `Image ${i + 1}/${total} (${item.file.name}) • ${pct}%`);
             },
           });
+
+          clearInterval(fallbackTimer);
+
+          item.itemProgress = 100;
+          item.progressText = "Finalizing PNG...";
+          updateItemCardProgress(item);
 
           const dataUrl = await blobToDataUrl(outputBlob);
           const baseName = (item.file.name || "image").replace(/\.[^/.]+$/, "");
 
           item.status = "done";
+          item.itemProgress = 100;
           item.resultDataUrl = dataUrl;
           item.outputName = `${baseName}-sanskar-nobg.png`;
           successCount++;
         } catch (err) {
+          clearInterval(fallbackTimer);
           console.error(`Error processing [${item.file.name}]:`, err);
           item.status = "error";
           item.error = err && err.message ? err.message : "Background remove nahi ho paya.";
@@ -1050,6 +1315,7 @@
 
         renderGrid();
         updateControls();
+        setOverallProgress(((i + 1) / total) * 100, `${i + 1} / ${total} images completed`);
       }
 
       isProcessing = false;
@@ -1057,7 +1323,8 @@
       updateControls();
 
       if (successCount > 0) {
-        setStatus(`✅ ${successCount} / ${queue.length} images ka background remove ho gaya!`, "success");
+        setOverallProgress(100, `Complete: ${successCount} / ${total} images done`);
+        setStatus(`✅ ${successCount} / ${total} images ka background remove ho gaya!`, "success");
       } else {
         setStatus(`❌ ${firstError || "Background remove nahi ho paya."}`, "error");
       }
@@ -1122,6 +1389,7 @@
       if (isProcessing) return;
       queue.forEach((item) => URL.revokeObjectURL(item.origUrl));
       queue = [];
+      hideOverallProgress();
       renderGrid();
       updateControls();
       setStatus("");
